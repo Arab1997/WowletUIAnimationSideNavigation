@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnmenu, exp, st, msg,sgo, add;
+    Button btnmenu, exp, st, msg, sgo, add;
     RelativeLayout maincontent;
     LinearLayout mainmenu;
     ImageView userpicbig;
@@ -40,24 +40,32 @@ public class MainActivity extends AppCompatActivity {
 
         user = (TextView) findViewById(R.id.user);
         country = (TextView) findViewById(R.id.country);
-
-        maincontent = (RelativeLayout) findViewById(R.id.maincontent);
-        mainmenu = (LinearLayout) findViewById(R.id.mainMenu);
-
+        userpicbig = (ImageView) findViewById(R.id.userpicbig);
 
         frombottom = AnimationUtils.loadAnimation(this, R.anim.frombottom);
         fromtop = AnimationUtils.loadAnimation(this, R.anim.fromtop);
 
-
+        maincontent = (RelativeLayout) findViewById(R.id.maincontent);
+        mainmenu = (LinearLayout) findViewById(R.id.mainMenu);
 
         btnmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 maincontent.animate().translationX(0);
                 mainmenu.animate().translationX(0);
+
+                exp.startAnimation(frombottom);
+                msg.startAnimation(frombottom);
+                st.startAnimation(frombottom);
+                sgo.startAnimation(frombottom);
+                add.startAnimation(frombottom);
+
+                user.startAnimation(fromtop);
+                country.startAnimation(fromtop);
+                userpicbig.startAnimation(fromtop);
+
             }
         });
-
         maincontent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
